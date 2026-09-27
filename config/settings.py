@@ -29,6 +29,7 @@ ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
     "portfolya-dusky.vercel.app",
+    "portfolya-biad.vercel.app",
 ]
 
 
@@ -43,7 +44,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'store',
-
 ]
 
 
