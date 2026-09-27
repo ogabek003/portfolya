@@ -1,0 +1,117 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+
+<div class="register-container">
+
+    <div class="register-card">
+
+        <div class="register-header">
+
+            <div class="register-icon">
+                👤
+            </div>
+
+            <h2>Ro'yxatdan o'tish</h2>
+
+            <p>
+                Yangi akkaunt yaratish uchun ma'lumotlaringizni kiriting
+            </p>
+
+        </div>
+
+        <form method="post">
+
+            {% csrf_token %}
+
+            {% if form.non_field_errors %}
+                <div class="form-error">
+                    {{ form.non_field_errors }}
+                </div>
+            {% endif %}
+
+
+            <!-- USERNAME -->
+
+            <div class="input-group">
+
+                <label for="{{ form.username.id_for_label }}">
+                    Username
+                </label>
+
+                {{ form.username }}
+
+                {% if form.username.errors %}
+                    <div class="field-error">
+                        {{ form.username.errors }}
+                    </div>
+                {% endif %}
+
+            </div>
+
+
+            <!-- EMAIL -->
+
+            <div class="input-group">
+
+                <label for="{{ form.email.id_for_label }}">
+                    Email
+                </label>
+
+                {{ form.email }}
+
+                {% if form.email.errors %}
+                    <div class="field-error">
+                        {{ form.email.errors }}
+                    </div>
+                {% endif %}
+
+            </div>
+
+
+            <!-- PAROL -->
+
+            <div class="input-group">
+
+                <label for="{{ form.password1.id_for_label }}">
+                    Parol
+                </label>
+
+                {{ form.password1 }}
+
+                {% if form.password1.errors %}
+                    <div class="field-error">
+                        {{ form.password1.errors }}
+                    </div>
+                {% endif %}
+
+            </div>
+
+
+            <!-- TUGMA -->
+
+            <button
+                type="submit"
+                class="register-submit"
+            >
+                Ro'yxatdan o'tish
+            </button>
+
+        </form>
+
+
+        <div class="login-link">
+
+            Akkauntingiz bormi?
+
+            <a href="#">
+                Kirish
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

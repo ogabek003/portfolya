@@ -1,0 +1,105 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+
+<div class="order-form-page">
+
+    <div class="order-form-card">
+
+        <div class="order-form-icon">
+            🛒
+        </div>
+
+        <h2>Buyurtma berish</h2>
+
+        <p>
+            Buyurtma ma'lumotlarini kiriting
+        </p>
+
+        <div class="selected-service">
+            {{ service_name }}
+        </div>
+
+        <div class="selected-price">
+            💰 {{ price }} so'm
+        </div>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <div class="form-group">
+
+                <label>
+                    👤 Ismingiz
+                </label>
+
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Ismingizni kiriting"
+                    required
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label>
+                    📞 Telefon raqamingiz
+                </label>
+
+                <input
+                    type="text"
+                    name="phone"
+                    placeholder="+998 90 123 45 67"
+                    required
+                >
+
+            </div>
+
+            {% if service == "bot" %}
+
+            <div class="form-group">
+
+                <label>
+                    🤖 Qanday bot kerak?
+                </label>
+
+                <textarea
+                    name="bot_description"
+                    placeholder="Masalan: zakaz qabul qiladigan bot..."
+                    required
+                ></textarea>
+
+            </div>
+
+            {% endif %}
+
+            <div class="form-group">
+
+                <label>
+                    📝 Qo'shimcha ma'lumot
+                </label>
+
+                <textarea
+                    name="comment"
+                    placeholder="Qo'shimcha talablaringiz..."
+                ></textarea>
+
+            </div>
+
+            <button
+                type="submit"
+                class="send-order-btn"
+            >
+                🚀 Buyurtmani yuborish
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

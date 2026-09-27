@@ -1,0 +1,108 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+
+<div class="projects-page">
+
+    <div class="projects-header">
+
+        <h2>💻 Bizning loyihalarimiz</h2>
+
+        <p>
+            Biz yaratgan loyihalar va ularda ishlatilgan texnologiyalar.
+        </p>
+
+    </div>
+
+
+    <div class="projects-grid">
+
+        {% for project in projects %}
+
+        <div class="project-card">
+
+            <div class="project-icon">
+                🚀
+            </div>
+
+
+            <h3>
+                {{ project.name }}
+            </h3>
+
+
+            <p class="project-description">
+                {{ project.description }}
+            </p>
+
+
+            <div class="technology-title">
+                🛠 Ishlatilgan texnologiyalar
+            </div>
+
+
+            <div class="technology-list">
+
+                {% for technology in project.technologies.all %}
+
+                <span class="technology-tag">
+                    {{ technology.name }}
+                </span>
+
+                {% empty %}
+
+                <span class="technology-tag">
+                    Texnologiya kiritilmagan
+                </span>
+
+                {% endfor %}
+
+            </div>
+
+
+            {% if project.link %}
+
+            <div class="project-link-box">
+
+                <a
+                    href="{{ project.link }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-link-btn"
+                >
+                    🌐 Loyihani ko‘rish
+                </a>
+
+            </div>
+
+            {% endif %}
+
+
+        </div>
+
+
+        {% empty %}
+
+        <div class="no-projects">
+
+            <div class="empty-icon">
+                📭
+            </div>
+
+            <h3>
+                Hozircha loyihalar yo‘q
+            </h3>
+
+            <p>
+                Admin paneldan loyiha qo‘shing.
+            </p>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Do'kon</title>
+
+    <link rel="stylesheet" href="/static/store/css/uslub.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <a href="/">Bosh sahifa</a>
+
+        <a href="/loyihalar/">
+            💻 Loyihalar
+        </a>
+
+        <a href="/aloqa/">
+            Aloqa
+        </a>
+
+        <a href="/zakaz/" class="order-nav-btn">
+            🛒 Zakaz berish
+        </a>
+
+        <a href="/buyurtmalarim/" class="my-orders-nav-btn">
+            📦 Mening buyurtmalarim
+        </a>
+
+        <a href="/boglanish/">
+            📩 Bog'lanish
+        </a>
+
+        <!-- iPhone style dark mode -->
+        <label class="ios-switch">
+            <input type="checkbox" id="darkModeBtn">
+            <span class="ios-slider"></span>
+        </label>
+    </nav>
+
+
+    <!-- ASOSIY QISM -->
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+
+    <!-- DARK MODE SCRIPT -->
+    <script>
+        const darkModeBtn = document.getElementById("darkModeBtn");
+
+        // Oldingi tanlangan holatni olish
+        const savedTheme = localStorage.getItem("theme");
+
+        if (savedTheme === "dark") {
+            document.body.classList.add("dark-mode");
+            darkModeBtn.checked = true;
+        }
+
+        // Toggle bosilganda
+        darkModeBtn.addEventListener("change", function () {
+
+            if (this.checked) {
+                document.body.classList.add("dark-mode");
+                localStorage.setItem("theme", "dark");
+            } else {
+                document.body.classList.remove("dark-mode");
+                localStorage.setItem("theme", "light");
+            }
+
+        });
+    </script>
+
+</body>
+</html>

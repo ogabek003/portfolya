@@ -1,0 +1,121 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+
+<div class="order-page">
+
+    <div class="order-header">
+
+        <h2>🛒 Buyurtma berish</h2>
+
+        <p>
+            O'zingizga kerakli xizmatni tanlang
+        </p>
+
+    </div>
+
+
+    <div class="order-panel">
+
+
+        <!-- SAYT -->
+
+        <div class="order-card">
+
+            <div class="order-icon">
+                🌐
+            </div>
+
+            <h3>Web Sayt</h3>
+
+            <p>
+                Zamonaviy va professional web sayt yaratish.
+            </p>
+
+            <a
+                href="/zakaz-form/?service=website"
+                class="order-btn"
+            >
+                Buyurtma berish
+            </a>
+
+        </div>
+
+
+        <!-- TELEGRAM BOT -->
+
+        <div class="order-card">
+
+            <div class="order-icon">
+                🤖
+            </div>
+
+            <h3>Telegram Bot</h3>
+
+            <p>
+                Biznesingiz uchun zamonaviy Telegram bot.
+            </p>
+
+            <a
+                href="/zakaz-form/?service=bot"
+                class="order-btn"
+            >
+                Buyurtma berish
+            </a>
+
+        </div>
+
+
+        <!-- DASTUR -->
+
+        <div class="order-card">
+
+            <div class="order-icon">
+                💻
+            </div>
+
+            <h3>Dastur</h3>
+
+            <p>
+                Siz uchun maxsus dastur ishlab chiqamiz.
+            </p>
+
+            <a
+                href="/zakaz-form/?service=program"
+                class="order-btn"
+            >
+                Buyurtma berish
+            </a>
+
+        </div>
+
+
+        <!-- DIZAYN -->
+
+        <div class="order-card">
+
+            <div class="order-icon">
+                🎨
+            </div>
+
+            <h3>Dizayn</h3>
+
+            <p>
+                Zamonaviy UI/UX dizayn xizmatlari.
+            </p>
+
+            <a
+                href="/zakaz-form/?service=design"
+                class="order-btn"
+            >
+                Buyurtma berish
+            </a>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+{% endblock %}

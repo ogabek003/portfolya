@@ -1,0 +1,107 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+
+<div class="orders-page">
+
+    <div class="orders-header">
+        <h2>📦 Mening buyurtmalarim</h2>
+        <p>Buyurtmangiz holatini shu yerda kuzating.</p>
+    </div>
+
+    {% for order in orders %}
+
+    <div class="my-order">
+
+        <div class="order-top">
+
+            <div>
+                <h3>{{ order.get_service_display }}</h3>
+
+                <span class="order-number">
+                    Buyurtma #{{ order.id }}
+                </span>
+            </div>
+
+            <div class="order-price">
+                💰 {{ order.price }} so'm
+            </div>
+
+        </div>
+
+        <div class="order-info">
+
+            <p>👤 {{ order.name }}</p>
+            <p>📞 {{ order.phone }}</p>
+
+        </div>
+
+        {% if order.status == "pending" %}
+
+        <div class="status pending">
+
+            <div class="status-icon">🕐</div>
+
+            <div>
+                <strong>Jarayonda</strong>
+
+                <p>
+                    Buyurtmangiz ko'rib chiqilmoqda.
+                </p>
+            </div>
+
+        </div>
+
+        {% elif order.status == "approved" %}
+
+        <div class="status approved">
+
+            <div class="status-icon">✅</div>
+
+            <div>
+                <strong>Buyurtmangiz qabul qilindi!</strong>
+
+                <p>
+                    Siz bilan bog'lanamiz.
+                </p>
+            </div>
+
+        </div>
+
+        {% elif order.status == "rejected" %}
+
+        <div class="status rejected">
+
+            <div class="status-icon">❌</div>
+
+            <div>
+                <strong>Buyurtma rad etildi</strong>
+
+                <p>
+                    Qo'shimcha ma'lumot uchun biz bilan bog'laning.
+                </p>
+            </div>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+    {% empty %}
+
+    <div class="empty-orders">
+
+        <div class="empty-icon">📭</div>
+
+        <h3>Hozircha buyurtmangiz yo'q</h3>
+
+        <p>Xizmat tanlab buyurtma bering.</p>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

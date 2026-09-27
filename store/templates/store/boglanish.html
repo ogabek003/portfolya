@@ -1,0 +1,81 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+
+<div class="contact-page">
+
+    <div class="contact-header">
+
+        <h2>📩 Bog'lanish</h2>
+
+        <p>
+            Savol yoki taklifingiz bo‘lsa, bizga xabar yuboring.
+        </p>
+
+    </div>
+
+
+    <div class="contact-form-card">
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <div class="contact-form-group">
+
+                <label>
+                    👤 Ismingiz
+                </label>
+
+                {{ form.name }}
+
+            </div>
+
+
+            <div class="contact-form-group">
+
+                <label>
+                    📧 Email
+                </label>
+
+                {{ form.email }}
+
+            </div>
+
+
+            <div class="contact-form-group">
+
+                <label>
+                    📞 Telefon
+                </label>
+
+                {{ form.phone }}
+
+            </div>
+
+
+            <div class="contact-form-group">
+
+                <label>
+                    💬 Xabaringiz
+                </label>
+
+                {{ form.message }}
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="send-message-btn"
+            >
+                🚀 Xabar yuborish
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
